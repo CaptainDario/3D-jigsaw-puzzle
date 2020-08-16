@@ -1,5 +1,5 @@
 
-puzzle_path = "jigsaw.svg";
+puzzle_path = "example_small/jigsaw.svg";
 heigt = 10;
 
 
