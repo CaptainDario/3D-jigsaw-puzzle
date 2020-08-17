@@ -3,15 +3,18 @@ A procedure and the necessary files to generate 3D jigsaw puzzles.
 
 ## Step 0: Introduction
 
+![Preview](/images/thumbnail.jpg)
+A video guide will be added here soon (as fast as the bigger examples has finished printing).
+
 This repo contains all necessary files and steps to create your own 3D-jigsaw-puzzles.
 If you want to first try out a small puzzle before making your own, load the "example_small/puzzle_finished.stl".
 You should get something similar to this:<br>
-![Sample puzzle](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png )
+![Sample puzzle](/images/example_small.jpg)
 <br>
 <br>
-This guide assumes you are somewhat familiar with 3D modelling, CAD and boolean operations.
+This guide assumes you are somewhat familiar with 3D modeling, CAD, and boolean operations.
 I try my best to provide a step by step guide.
-But I will not explain **every** button and click which will be necessary.<br>
+But I will not explain **every** button, click, etc..<br>
 What will we be doing?
 We will first generate a 2D-puzzle-path as SVG.
 Afterwards we will extrude this path to get a 3D-puzzle.
@@ -19,7 +22,7 @@ The last step is to cut the 3D-puzzle to a specific shape. <br>
 To create your own puzzle you will either need a [Heightmap](https://en.wikipedia.org/wiki/Heightmap) of your desired shape or a 3D model (or combination of both).
 
 This was an entry to the 2020 puzzle challenge.
-See it on instructables [here]().
+Take a look [here]().
 
 
 ## Step 1: Tools and Software
@@ -31,24 +34,25 @@ See it on instructables [here]().
   * [OpenScad](https://www.openscad.org/)
   * [Blender](https://www.blender.org/)
   * Contents of this repo
-  * optional: image manipulation software
 
 ## Step 2: Create a puzzle path
-First we need to create a puzzle path.
+First, we need to create a puzzle-path.
 For this open the "jigsaw.html".
 You should see a screen similar to this: <br>
 ![Jigsaw-puzzle-path-generator](images/jigsaw_puzzle_generator.jpg) <br>
-In the generator you should set the amount of tiles you want.
-If you change the amount of tiles be sure to adjust the size of the puzzle.
-For me a value of 15 per piece worked well.
+In the generator, you should set the number of tiles you want.
+If you change the number of tiles be sure to adjust the size of the puzzle.
+For me, a value of 15 per piece worked well.
 Therefore I always set $size = tiles \times 15$.<br>
-But most important is the Path thickness.
-All the other values can be changed later with extrusion and/or scaling in blender.
-But the Path thickness sets the Gap between the individual puzzle pieces.
+But the most important setting is the Path thickness.
+The Path thickness sets the Gap between the individual puzzle pieces.
 Here you should know which clearances your printer can produce.
 If you are not sure print the files in "/clearance_test/clearance_xxx.stl" as a test and adjust the path thickness.
-If the gap between the puzzle tiles is too small it will not stay together. But if the gaps are to big the puzzle can not be put together.<br>
-If you have settle down all your settings export a .svg of your puzzle with the "Download SVG" button.  
+If the gap between the puzzle tiles is too small the correct tiles will not stay together. But if the gaps are too big the puzzle can not be put together (image 2).<br>
+![too small/small](images/failures.jpg) <br>
+![correct](images/correct.jpg) <br>
+
+If you have settled down all your settings export a .svg of your puzzle with the "Download SVG" button.  
 
 
 ## Step 3: Make a 3D-object from your path
@@ -57,12 +61,12 @@ If you cloned the repository you should be greeted with a screen similar to this
 ![OpenSCAD puzzle path](/images/OpenSCAD.jpg)<br>
 Now change the "puzzle_path" to the path of your .svg-file.
 You can set a value for the height too.
-However this is not too important because you can scale the object in Blender too.<br>
+However, this is not too important because you can scale the object in Blender too.<br>
 Now press *F6* or *Design -> Render*.
 After this save the model as .stl (press *F7* or *"File" -> "Export" -> "Export as STL"*).<br>
 
 
-## Step 4: Use the 3D-puzzle to make the desired puzzle shape
+## Step 4: Use the 3D-puzzle to cut the desired puzzle shape
 Now open Blender.
 First delete the default cube, camera and light.
 Now load your puzzle's *.stl ("File" -> "import" -> "Stl").
@@ -73,20 +77,20 @@ Now load your puzzle's *.stl ("File" -> "import" -> "Stl").
 ### Option 1: Use a Heightmap
 If you want to use a Heightmap add a plane and scale it to be slightly larger than the 3D-puzzle.<br>
 
-You should also switch into edit-mode (tab-key) and add an "Edge Crease" (crtl + e) to all four sides of the plane with maximum strength (indicated by lila/pink edges).<br>
+You should also switch into edit-mode (tab-key) and add an "Edge Crease" (ctrl + e) to all four sides of the plane with maximum strength (indicated by lila/pink edges).<br>
 
 ![Blender - edge crease](/images/blender_edge_crease.jpg)<br>
 ![Blender - edge crease finished](/images/blender_edge_crease_finished.jpg)<br>
 
 Now add two modifiers **to the plane**.
 First a "Multiresolution"-modifier and second a "Displace"-modifier.
-The "Multiresolution"-modifier's subdivision should be set to s level where you are satisfied with the resolution.
-Add a New Texture to the "Displace"-modifier.<br>
+The "Multiresolution"-modifier's subdivision should be set to a level where you are satisfied with the resolution.
+Add a new Texture to the "Displace"-modifier.<br>
 
 ![Blender - modifiers](/images/blender_modifiers.jpg)<br>
 
 Now switch to the Texture-tab and load your heightmap.
-For this the Type must be set to "Image or Movie"<br>
+For this, the Type must be set to "Image or Movie"<br>
 
 ![Blender - added heightmap](/images/blender_added_heightmap.jpg)<br>
 
@@ -106,7 +110,7 @@ After this your plane should be completely inside the puzzle:<br>
 
 Now add a "Boolean"-modifier to the 3D-puzzle.
 Set it to "difference" and the "Object" to your plane.
-Finally apply the modifier.<br>
+Finally, apply the modifier.<br>
 ![Blender - boolean modifier](/images/blender_boolean_modifier.jpg)<br>
 
 Now switch to edit mode and select all vertices on the top of the Puzzle.<br>
@@ -117,14 +121,15 @@ And delete all of them.
 you should be left with a 3D-printable shape like this:<br>
 
 ![Blender - finished shape](/images/blender_finished_shape.jpg)<br>
+(basically the small example with more tiles...)
 
 
 ### Option 2: Use a 3D-Object
-First you need to make sure that the object is non-overlapping and in general 3D-printable.
-However consider that you will cut the object and this **could** make it 3D-printable.
-Now import the model like you did with the 3D-puzzle.
+First, you need to make sure that the object is non-overlapping and in general 3D-printable.
+However, consider that you will cut the object and this **could** make it 3D-printable.
+Now import the model as you did with the 3D-puzzle.
 Next scale, rotate and place it in the scene the way you want it to be.
-The part which should be in the puzzle should be **inside** the 3D-puzzle.<br>
+The shape which should be the final puzzle needs to be **inside** the 3D-puzzle.<br>
 
 ![Blender - object inside of puzzle](/images/blender_object_inside_puzzle.jpg)<br>
 
@@ -142,11 +147,13 @@ The only difference is that you have to join the plane and the 3D-object with **
 ## Step 5: Print it!
 Fire up your favorite slicer and make sure everything looks good in the preview.
 Now send it to your printer and watch your puzzle grow!
+If you want to give the larger example a try:
+It takes very long to slice and maybe 5 days to print.
 
 
 ## Step 6: You have done it!
 You have created your custom 3D-jigsaw-puzzle.
-Give it as a present to a special person or keep it and just enjoy!
+Give it as a present to a special person or keep it and just enjoy it!
 
 
 ## Want more?
