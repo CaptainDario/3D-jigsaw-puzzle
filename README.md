@@ -22,7 +22,7 @@ The last step is to cut the 3D-puzzle to a specific shape. <br>
 To create your own puzzle you will either need a [Heightmap](https://en.wikipedia.org/wiki/Heightmap) of your desired shape or a 3D model (or combination of both).
 
 This was an entry to the 2020 puzzle challenge.
-Take a look [here]().
+Take a look [here](https://www.instructables.com/id/Make-Your-Own-3D-jigsaw-puzzle).
 
 
 ## Step 1: Tools and Software
