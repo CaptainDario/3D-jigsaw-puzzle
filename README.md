@@ -37,7 +37,7 @@ See it on instructables [here]().
 First we need to create a puzzle path.
 For this open the "jigsaw.html".
 You should see a screen similar to this: <br>
-![Jigsaw-puzzle-path-generator](images/jigsaw_puzzle_generator.PNG) <br>
+![Jigsaw-puzzle-path-generator](images/jigsaw_puzzle_generator.jpg) <br>
 In the generator you should set the amount of tiles you want.
 If you change the amount of tiles be sure to adjust the size of the puzzle.
 For me a value of 15 per piece worked well.
@@ -54,7 +54,7 @@ If you have settle down all your settings export a .svg of your puzzle with the 
 ## Step 3: Make a 3D-object from your path
 Open the "puzzle.scad" in OpenSCAD.
 If you cloned the repository you should be greeted with a screen similar to this:<br>
-![OpenSCAD puzzle path](/images/OpenSCAD.PNG)<br>
+![OpenSCAD puzzle path](/images/OpenSCAD.jpg)<br>
 Now change the "puzzle_path" to the path of your .svg-file.
 You can set a value for the height too.
 However this is not too important because you can scale the object in Blender too.<br>
@@ -67,8 +67,8 @@ Now open Blender.
 First delete the default cube, camera and light.
 Now load your puzzle's *.stl ("File" -> "import" -> "Stl").
 
-![Blender - import menu](/images/blender_import.png)<br>
-![Blender - imported 3D puzzle](/images/blender_imported.png)<br>
+![Blender - import menu](/images/blender_import.jpg)<br>
+![Blender - imported 3D puzzle](/images/blender_imported.jpg)<br>
 
 ### Option 1: Use a Heightmap
 If you want to use a Heightmap add a plane and scale it to be slightly larger than the 3D-puzzle.<br>
