@@ -149,7 +149,8 @@ The only difference is that you have to join the plane and the 3D-object with **
 Fire up your favorite slicer and make sure everything looks good in the preview.
 Now send it to your printer and watch your puzzle grow!
 If you want to give the larger example a try:
-It takes very long to slice and maybe 5 days to print.
+It takes very long to slice and maybe 5 days to print.<br>
+![Slicer](/images/puzzle_sliced.jpg)<br>
 
 
 ## Step 6: You have done it!
