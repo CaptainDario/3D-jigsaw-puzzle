@@ -3,8 +3,9 @@ A procedure and the necessary files to generate 3D jigsaw puzzles.
 
 ## Step 0: Introduction
 
-![Preview](/images/thumbnail.jpg)
-A video guide will be added here soon (as fast as the bigger examples has finished printing).
+If you prefer a video guide click on the image below.
+[![Video Guide](https://img.youtube.com/vi/Sl4_0uPr6Pk/0.jpg)](https://www.youtube.com/watch?v=Sl4_0uPr6Pk)
+
 
 This repo contains all necessary files and steps to create your own 3D-jigsaw-puzzles.
 If you want to first try out a small puzzle before making your own, load the "example_small/puzzle_finished.stl".
